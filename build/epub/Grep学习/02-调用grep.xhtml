@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>02 调用grep</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="grep">
+<h1>02 调用grep</h1>
+<p>调用grep的用法：</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>grep options pattern input_file_names
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h2>2.1 命令行选项</h2>
+<dl class="option-list">
+<dt><kbd><span class="option">--help</span></kbd></dt>
+<dd><p>获取帮助</p>
+</dd>
+<dt><kbd><span class="option">-V</span></kbd></dt>
+<dd><p>获取版本</p>
+</dd>
+<dt><kbd><span class="option">--version</span></kbd></dt>
+<dd><p>获取版本</p>
+</dd>
+<dt><kbd><span class="option">-e</span></kbd></dt>
+<dd><p>指定模式，可以多次使用</p>
+</dd>
+<dt><kbd><span class="option">--regexp</span></kbd></dt>
+<dd><p>指定模式，可以多次使用</p>
+</dd>
+<dt><kbd><span class="option">-f</span></kbd></dt>
+<dd><p>模式从文件来</p>
+</dd>
+<dt><kbd><span class="option">-f<var>ile</var></span></kbd></dt>
+<dd><p>模式从文件来</p>
+</dd>
+<dt><kbd><span class="option">-i</span></kbd></dt>
+<dd><p>忽略大小写</p>
+</dd>
+<dt><kbd><span class="option">-y</span></kbd></dt>
+<dd><p>忽略大小写</p>
+</dd>
+<dt><kbd><span class="option">--ignore-case</span></kbd></dt>
+<dd><p>忽略大小写</p>
+</dd>
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>反向匹配</p>
+</dd>
+<dt><kbd><span class="option">--invert-match</span></kbd></dt>
+<dd><p>反向匹配</p>
+</dd>
+<dt><kbd><span class="option">-w</span></kbd></dt>
+<dd><p>单词匹配</p>
+</dd>
+<dt><kbd><span class="option">--word-regexp</span></kbd></dt>
+<dd><p>单词匹配</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>整行匹配</p>
+</dd>
+<dt><kbd><span class="option">--line-regexp</span></kbd></dt>
+<dd><p>整行匹配</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>显示匹配的个数</p>
+</dd>
+<dt><kbd><span class="option">--count</span></kbd></dt>
+<dd><p>显示匹配的个数</p>
+</dd>
+<dt><kbd><span class="option">--color</span></kbd></dt>
+<dd><p>给匹配到的结果上色</p>
+</dd>
+<dt><kbd><span class="option">-m</span></kbd></dt>
+<dd><p>最大的匹配个数</p>
+</dd>
+<dt><kbd><span class="option">--max-count</span></kbd></dt>
+<dd><p>最大的匹配个数</p>
+</dd>
+<dt><kbd><span class="option">-o</span></kbd></dt>
+<dd><p>只显示匹配的行</p>
+</dd>
+<dt><kbd><span class="option">--only-matching</span></kbd></dt>
+<dd><p>只显示匹配的行</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>静默模式</p>
+</dd>
+<dt><kbd><span class="option">--quiet</span></kbd></dt>
+<dd><p>静默模式</p>
+</dd>
+<dt><kbd><span class="option">--silent</span></kbd></dt>
+<dd><p>静默模式</p>
+</dd>
+<dt><kbd><span class="option">-b</span></kbd></dt>
+<dd><p>显示偏移字节数</p>
+</dd>
+<dt><kbd><span class="option">--btype-offset</span></kbd></dt>
+<dd><p>显示偏移字节数</p>
+</dd>
+<dt><kbd><span class="option">-H</span></kbd></dt>
+<dd><p>显示文件名</p>
+</dd>
+<dt><kbd><span class="option">--with-filename</span></kbd></dt>
+<dd><p>显示文件名</p>
+</dd>
+<dt><kbd><span class="option">-n</span></kbd></dt>
+<dd><p>显示行号</p>
+</dd>
+<dt><kbd><span class="option">--line-number</span></kbd></dt>
+<dd><p>显示行号</p>
+</dd>
+<dt><kbd><span class="option">-A</span></kbd></dt>
+<dd><p>匹配行后面几行显示</p>
+</dd>
+<dt><kbd><span class="option">--after-content</span></kbd></dt>
+<dd><p>匹配行后面几行显示</p>
+</dd>
+<dt><kbd><span class="option">-B</span></kbd></dt>
+<dd><p>匹配行前面几行显示</p>
+</dd>
+<dt><kbd><span class="option">--before-context</span></kbd></dt>
+<dd><p>匹配行前面几行显示</p>
+</dd>
+<dt><kbd><span class="option">-C</span></kbd></dt>
+<dd><p>匹配前后几行显示</p>
+</dd>
+<dt><kbd><span class="option">--context</span></kbd></dt>
+<dd><p>匹配行前后几行显示</p>
+</dd>
+<dt><kbd><span class="option">-d</span></kbd></dt>
+<dd><p>如果输入文件是目录，使用指定的action去处理，有read,skip,recurse,</p>
+</dd>
+<dt><kbd><span class="option">--directories</span></kbd></dt>
+<dd><p>如果输入文件是目录，使用指定的action去处理，有read,skip,recurse,</p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p>输入文件是目录，递归</p>
+</dd>
+<dt><kbd><span class="option">--recursive</span></kbd></dt>
+<dd><p>输入文件是目录，递归</p>
+</dd>
+<dt><kbd><span class="option">-R</span></kbd></dt>
+<dd><p>递归，且追踪符号链接</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>2.2 环境变量</h2>
+<p>grep是受到一些环境变量影响的。</p>
+<p>2.3 退出码</p>
+<p>如果退出码是0表示有匹配到的，1代表没有行选中，2代表有错误发生。</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

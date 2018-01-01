@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>04 使用grep</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="grep">
+<h1>04 使用grep</h1>
+<div class="section" id="id1">
+<h2>4.1 列出匹配的文件中那个有指定的字符串</h2>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep -l <span class="s1">&#39;main&#39;</span> *.txt
+lines.txt
+</pre></div>
+</div>
+</div></blockquote>
+<p>*.txt 代表目录下的所有txt文件。 找这些文件中的包含main的。显示出来的是文件名</p>
+</div>
+<div class="section" id="id2">
+<h2>4.2 递归查找目录</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -r <span class="s1">&#39;hello&#39;</span> /home/gigi
+</pre></div>
+</div>
+<p>递归查找/home/gigi目录下的文件包含hello的字符串。</p>
+</div>
+<div class="section" id="id3">
+<h2>4.3 如果模式中有前导-</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -e <span class="s1">&#39;--cut here--&#39;</span> *
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4.4 搜索整个单词而不是单词的一部分</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -w <span class="s1">&#39;hello&#39;</span> *
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.5 显示匹配行的上下文行</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -C <span class="m">2</span> <span class="s1">&#39;hello&#39;</span> a.txt
+</pre></div>
+</div>
+<p>查找a.txt的文件中包含hello的行， 且显示hello匹配行的上下2行。</p>
+</div>
+<div class="section" id="id6">
+<h2>4.6 强制grep打印文件名</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep -H <span class="s1">&#39;root&#39;</span> /etc/passwd
+/etc/passwd:root:x:0:0:root:/root:/bin/bash
+/etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+/etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep  <span class="s1">&#39;root&#39;</span> /etc/passwd /dev/null
+/etc/passwd:root:x:0:0:root:/root:/bin/bash
+/etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+/etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>4.7 接受重定向的输入</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ ps aux <span class="p">|</span>grep httpd
+root       <span class="m">1113</span>  <span class="m">0</span>.0  <span class="m">0</span>.2 <span class="m">221952</span>  <span class="m">4980</span> ?        Ss   <span class="m">11</span>:19   <span class="m">0</span>:02 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1296</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1297</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1298</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1299</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1300</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+root      <span class="m">12232</span>  <span class="m">0</span>.0  <span class="m">0</span>.0 <span class="m">112664</span>   <span class="m">960</span> pts/1    S+   <span class="m">21</span>:00   <span class="m">0</span>:00 grep --color httpd
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>4.8 grep 多次</h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep <span class="s1">&#39;paul&#39;</span> /etc/motd <span class="p">|</span> grep <span class="s1">&#39;franc,ois&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
