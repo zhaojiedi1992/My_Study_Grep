@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>04 使用grep &mdash; My_Study_Grep v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="My_Study_Grep v0.1 documentation" href="../index.html"/>
+        <link rel="prev" title="03 正则表达式" href="03-正则表达式.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My_Study_Grep
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Grep学习</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-简介.html">01 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-调用grep.html">02 调用grep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-正则表达式.html">03 正则表达式</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">04 使用grep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4.1 列出匹配的文件中那个有指定的字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.2 递归查找目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">4.3 如果模式中有前导-</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">4.4 搜索整个单词而不是单词的一部分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.5 显示匹配行的上下文行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4.6 强制grep打印文件名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">4.7 接受重定向的输入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">4.8 grep 多次</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My_Study_Grep</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>04 使用grep</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Grep学习/04-使用grep.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="grep">
+<h1>04 使用grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.1 列出匹配的文件中那个有指定的字符串<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep -l <span class="s1">&#39;main&#39;</span> *.txt
+lines.txt
+</pre></div>
+</div>
+</div></blockquote>
+<p>*.txt 代表目录下的所有txt文件。 找这些文件中的包含main的。显示出来的是文件名</p>
+</div>
+<div class="section" id="id2">
+<h2>4.2 递归查找目录<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -r <span class="s1">&#39;hello&#39;</span> /home/gigi
+</pre></div>
+</div>
+<p>递归查找/home/gigi目录下的文件包含hello的字符串。</p>
+</div>
+<div class="section" id="id3">
+<h2>4.3 如果模式中有前导-<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -e <span class="s1">&#39;--cut here--&#39;</span> *
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4.4 搜索整个单词而不是单词的一部分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -w <span class="s1">&#39;hello&#39;</span> *
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.5 显示匹配行的上下文行<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep -C <span class="m">2</span> <span class="s1">&#39;hello&#39;</span> a.txt
+</pre></div>
+</div>
+<p>查找a.txt的文件中包含hello的行， 且显示hello匹配行的上下2行。</p>
+</div>
+<div class="section" id="id6">
+<h2>4.6 强制grep打印文件名<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep -H <span class="s1">&#39;root&#39;</span> /etc/passwd
+/etc/passwd:root:x:0:0:root:/root:/bin/bash
+/etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+/etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+<span class="o">[</span>root@centos74 test<span class="o">]</span>$ grep  <span class="s1">&#39;root&#39;</span> /etc/passwd /dev/null
+/etc/passwd:root:x:0:0:root:/root:/bin/bash
+/etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+/etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>4.7 接受重定向的输入<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>root@centos74 test<span class="o">]</span>$ ps aux <span class="p">|</span>grep httpd
+root       <span class="m">1113</span>  <span class="m">0</span>.0  <span class="m">0</span>.2 <span class="m">221952</span>  <span class="m">4980</span> ?        Ss   <span class="m">11</span>:19   <span class="m">0</span>:02 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1296</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1297</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1298</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1299</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+apache     <span class="m">1300</span>  <span class="m">0</span>.0  <span class="m">0</span>.1 <span class="m">224036</span>  <span class="m">3104</span> ?        S    <span class="m">11</span>:20   <span class="m">0</span>:00 /usr/sbin/httpd -DFOREGROUND
+root      <span class="m">12232</span>  <span class="m">0</span>.0  <span class="m">0</span>.0 <span class="m">112664</span>   <span class="m">960</span> pts/1    S+   <span class="m">21</span>:00   <span class="m">0</span>:00 grep --color httpd
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>4.8 grep 多次<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grep <span class="s1">&#39;paul&#39;</span> /etc/motd <span class="p">|</span> grep <span class="s1">&#39;franc,ois&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="03-正则表达式.html" class="btn btn-neutral" title="03 正则表达式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, zhaojiedi1992.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

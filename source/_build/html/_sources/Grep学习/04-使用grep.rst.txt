@@ -1,0 +1,79 @@
+04 使用grep
+================================================================
+
+4.1 列出匹配的文件中那个有指定的字符串
+--------------------------------------------------------------------
+
+    .. code-block:: bash
+
+        [root@centos74 test]$ grep -l 'main' *.txt
+        lines.txt
+
+*.txt 代表目录下的所有txt文件。 找这些文件中的包含main的。显示出来的是文件名
+
+4.2 递归查找目录
+--------------------------------------------------------------------
+
+.. code-block:: bash
+
+    grep -r 'hello' /home/gigi
+
+递归查找/home/gigi目录下的文件包含hello的字符串。
+
+4.3 如果模式中有前导-
+--------------------------------------------------
+
+.. code-block:: bash
+
+    grep -e '--cut here--' *
+
+4.4 搜索整个单词而不是单词的一部分
+-----------------------------------------------------------
+
+.. code-block:: bash
+
+    grep -w 'hello' *
+
+4.5 显示匹配行的上下文行
+-----------------------------------------------
+
+.. code-block:: bash
+
+    grep -C 2 'hello' a.txt
+
+查找a.txt的文件中包含hello的行， 且显示hello匹配行的上下2行。
+
+4.6 强制grep打印文件名
+--------------------------------------------------------------
+
+.. code-block:: bash
+
+    [root@centos74 test]$ grep -H 'root' /etc/passwd
+    /etc/passwd:root:x:0:0:root:/root:/bin/bash
+    /etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+    /etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+    [root@centos74 test]$ grep  'root' /etc/passwd /dev/null
+    /etc/passwd:root:x:0:0:root:/root:/bin/bash
+    /etc/passwd:operator:x:11:0:operator:/root:/sbin/nologin
+    /etc/passwd:dockerroot:x:606:606:Docker User:/var/lib/docker:/sbin/nologin
+
+4.7 接受重定向的输入
+-------------------------------------------------
+
+.. code-block:: bash
+
+    [root@centos74 test]$ ps aux |grep httpd
+    root       1113  0.0  0.2 221952  4980 ?        Ss   11:19   0:02 /usr/sbin/httpd -DFOREGROUND
+    apache     1296  0.0  0.1 224036  3104 ?        S    11:20   0:00 /usr/sbin/httpd -DFOREGROUND
+    apache     1297  0.0  0.1 224036  3104 ?        S    11:20   0:00 /usr/sbin/httpd -DFOREGROUND
+    apache     1298  0.0  0.1 224036  3104 ?        S    11:20   0:00 /usr/sbin/httpd -DFOREGROUND
+    apache     1299  0.0  0.1 224036  3104 ?        S    11:20   0:00 /usr/sbin/httpd -DFOREGROUND
+    apache     1300  0.0  0.1 224036  3104 ?        S    11:20   0:00 /usr/sbin/httpd -DFOREGROUND
+    root      12232  0.0  0.0 112664   960 pts/1    S+   21:00   0:00 grep --color httpd
+
+4.8 grep 多次
+-------------------------------------------------
+
+.. code-block:: bash
+
+    grep 'paul' /etc/motd | grep 'franc,ois'

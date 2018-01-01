@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>02 调用grep &mdash; My_Study_Grep v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="My_Study_Grep v0.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> My_Study_Grep
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">02 调用grep</a><ul>
+<li><a class="reference internal" href="#id1">2.1 命令行选项</a></li>
+<li><a class="reference internal" href="#id2">2.2 环境变量</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My_Study_Grep</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>02 调用grep</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Grep学习/02-调用grep.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="grep">
+<h1>02 调用grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h1>
+<p>调用grep的用法：</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>grep options pattern input_file_names
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h2>2.1 命令行选项<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--help</span></kbd></td>
+<td>获取帮助</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-V</span></kbd></td>
+<td>获取版本</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--version</span></kbd></td>
+<td>获取版本</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-e</span></kbd></td>
+<td>指定模式，可以多次使用</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--regexp</span></kbd></td>
+<td>指定模式，可以多次使用</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span></kbd></td>
+<td>模式从文件来</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f<var>ile</var></span></kbd></td>
+<td>模式从文件来</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>忽略大小写</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-y</span></kbd></td>
+<td>忽略大小写</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--ignore-case</span></kbd></td>
+<td>忽略大小写</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-v</span></kbd></td>
+<td>反向匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--invert-match</span></kbd></td>
+<td>反向匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-w</span></kbd></td>
+<td>单词匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--word-regexp</span></kbd></td>
+<td>单词匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-x</span></kbd></td>
+<td>整行匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--line-regexp</span></kbd></td>
+<td>整行匹配</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span></kbd></td>
+<td>显示匹配的个数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--count</span></kbd></td>
+<td>显示匹配的个数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--color</span></kbd></td>
+<td>给匹配到的结果上色</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-m</span></kbd></td>
+<td>最大的匹配个数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--max-count</span></kbd></td>
+<td>最大的匹配个数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-o</span></kbd></td>
+<td>只显示匹配的行</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--only-matching</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>只显示匹配的行</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-q</span></kbd></td>
+<td>静默模式</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--quiet</span></kbd></td>
+<td>静默模式</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--silent</span></kbd></td>
+<td>静默模式</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-b</span></kbd></td>
+<td>显示偏移字节数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--btype-offset</span></kbd></td>
+<td>显示偏移字节数</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-H</span></kbd></td>
+<td>显示文件名</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--with-filename</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>显示文件名</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-n</span></kbd></td>
+<td>显示行号</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--line-number</span></kbd></td>
+<td>显示行号</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-A</span></kbd></td>
+<td>匹配行后面几行显示</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--after-content</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>匹配行后面几行显示</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-B</span></kbd></td>
+<td>匹配行前面几行显示</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--before-context</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>匹配行前面几行显示</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-C</span></kbd></td>
+<td>匹配前后几行显示</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--context</span></kbd></td>
+<td>匹配行前后几行显示</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-d</span></kbd></td>
+<td>如果输入文件是目录，使用指定的action去处理，有read,skip,recurse,</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--directories</span></kbd></td>
+<td>如果输入文件是目录，使用指定的action去处理，有read,skip,recurse,</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>输入文件是目录，递归</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--recursive</span></kbd></td>
+<td>输入文件是目录，递归</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-R</span></kbd></td>
+<td>递归，且追踪符号链接</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h2>2.2 环境变量<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>grep是受到一些环境变量影响的。</p>
+<p>2.3 退出码</p>
+<p>如果退出码是0表示有匹配到的，1代表没有行选中，2代表有错误发生。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, zhaojiedi1992.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
