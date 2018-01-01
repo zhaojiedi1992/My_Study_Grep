@@ -19,23 +19,11 @@ awk学习_
 
 .. _awk学习: http://my-study-gawk.readthedocs.io/en/latest/
 
-Grep学习
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
     :maxdepth: 2
     :caption: Grep学习
-    :hidden:
 
     Grep学习/01-简介
     Grep学习/02-调用grep
     Grep学习/03-正则表达式
     Grep学习/04-使用grep
-
-:doc:`Grep学习/01-简介` 
-
-:doc:`Grep学习/02-调用grep` 
-
-:doc:`Grep学习/03-正则表达式` 
-
-:doc:`Grep学习/04-使用grep` 

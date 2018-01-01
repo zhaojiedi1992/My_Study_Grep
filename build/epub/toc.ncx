@@ -16,5 +16,107 @@
       </navLabel>
       <content src="index.xhtml" />  
     </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>01 简介</text>
+      </navLabel>
+      <content src="Grep学习/01-简介.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint3" playOrder="3">
+      <navLabel>
+        <text>02 调用grep</text>
+      </navLabel>
+      <content src="Grep学习/02-调用grep.xhtml" />  
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>02 调用grep</text>
+        </navLabel>
+        <content src="Grep学习/02-调用grep.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="4">
+        <navLabel>
+          <text>2.1 命令行选项</text>
+        </navLabel>
+        <content src="Grep学习/02-调用grep.xhtml#id1" />  
+      </navPoint>
+      <navPoint id="navPoint6" playOrder="5">
+        <navLabel>
+          <text>2.2 环境变量</text>
+        </navLabel>
+        <content src="Grep学习/02-调用grep.xhtml#id2" />  
+      </navPoint>
+      <navPoint id="navPoint7" playOrder="6">
+        <navLabel>
+          <text>2.3 退出码</text>
+        </navLabel>
+        <content src="Grep学习/02-调用grep.xhtml#id3" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint8" playOrder="7">
+      <navLabel>
+        <text>03 正则表达式</text>
+      </navLabel>
+      <content src="Grep学习/03-正则表达式.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint9" playOrder="8">
+      <navLabel>
+        <text>04 使用grep</text>
+      </navLabel>
+      <content src="Grep学习/04-使用grep.xhtml" />  
+      <navPoint id="navPoint10" playOrder="8">
+        <navLabel>
+          <text>04 使用grep</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint11" playOrder="9">
+        <navLabel>
+          <text>4.1 列出匹配的文件中那个有指定的字符串</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id1" />  
+      </navPoint>
+      <navPoint id="navPoint12" playOrder="10">
+        <navLabel>
+          <text>4.2 递归查找目录</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id2" />  
+      </navPoint>
+      <navPoint id="navPoint13" playOrder="11">
+        <navLabel>
+          <text>4.3 如果模式中有前导-</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id3" />  
+      </navPoint>
+      <navPoint id="navPoint14" playOrder="12">
+        <navLabel>
+          <text>4.4 搜索整个单词而不是单词的一部分</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id4" />  
+      </navPoint>
+      <navPoint id="navPoint15" playOrder="13">
+        <navLabel>
+          <text>4.5 显示匹配行的上下文行</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id5" />  
+      </navPoint>
+      <navPoint id="navPoint16" playOrder="14">
+        <navLabel>
+          <text>4.6 强制grep打印文件名</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id6" />  
+      </navPoint>
+      <navPoint id="navPoint17" playOrder="15">
+        <navLabel>
+          <text>4.7 接受重定向的输入</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id7" />  
+      </navPoint>
+      <navPoint id="navPoint18" playOrder="16">
+        <navLabel>
+          <text>4.8 grep 多次</text>
+        </navLabel>
+        <content src="Grep学习/04-使用grep.xhtml#id8" />  
+      </navPoint>
+    </navPoint>
   </navMap>
 </ncx>
